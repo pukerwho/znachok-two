@@ -99,11 +99,12 @@ if (addForm) {
     const phone = document.querySelector('#billing_phone').value;
 
     let checkoutProducts = JSON.parse(localStorage.getItem('products'));
-    let checkoutTotalSum = localStorage.getItem('totalSumProducts');
+    let checkoutTotalSum = 0;
     let checkoutOrders = "<b>Замовлення:</b> \n";
     
     for (order of checkoutProducts) {
       checkoutOrders += "Товар: " + order.name + "; Кількість: " + order.qty + "; Ціна: " + order.price + "\n";
+      checkoutTotalSum = checkoutTotalSum + (order.qty*order.price);
     }
     let data = {
       'action': 'telegram_add_action',
@@ -134,38 +135,6 @@ if (addForm) {
 }
 
 
-//Відправляємо повідомлення 
-function sendCheckout(e) {
-
-  let checkoutPhone = $('.shopping-cart__order-phone').val();
-  let checkoutOrders = JSON.parse(localStorage.getItem('products'));
-  let checkoutTotalSum = 0;
-  let txt = "<b>Телефон:</b> "+ checkoutPhone + "\n \n";
-  txt += "<b>Заказ:</b> \n";
-  
-  for (order of checkoutOrders) {
-	  txt += "Товар: " + order.name + "; Кол-во: " + order.qty + "; Сумма: " + order.price + "\n";
-    checkoutTotalSum = checkoutTotalSum + (order.qty*order.price);
-  }
-  txt += "\n <b>Итого:</b> "+ checkoutTotalSum + "\n \n";
-
-  e.preventDefault();
-  $.ajax({
-	url:'https://api.telegram.org/bot'+tkenTelegram+'/sendMessage',
-	method:'POST',
-	data:{chat_id:chIdTelegram,text:txt, parse_mode:'html'},
-	success:function(){
-	  // Очещаем форму и выводим уведомление
-	  form_cart.reset();
-	  $('.checkout_success').addClass('show');
-
-	  localStorage.removeItem('products');
-	  showProducts();
-	  //Аналитику отправляем
-	  googleAnalyticsEvent('Cart', 'Отправка заявки');
-	}
-  });
-}
 
 function showProducts() {
   if (CheckBrowser()) {
