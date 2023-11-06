@@ -1,6 +1,11 @@
+<?php 
+  $current_title = wp_get_document_title();
+?>
+
 <!doctype html>
 <html <?php language_attributes(); ?>>
 <head>
+  <title><?php echo $current_title; ?></title>
   <meta charset="<?php bloginfo( 'charset' ); ?>">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><![endif]-->

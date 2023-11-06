@@ -57,7 +57,7 @@
           <div>
             <!-- Price -->
             <div>
-
+              <?php $sale_price = carbon_get_the_post_meta('product_price_sale'); ?>
               <!-- Если есть скидка -->
               <?php if ($sale_price): ?>
                 <div class="mb-2">
