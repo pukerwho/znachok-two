@@ -189,8 +189,6 @@ input[type="number"] {
 .header_container {
   position: absolute;
   top: 30px;
-  left: 0;
-  right: 0;
 }
 
 .header_menu {
@@ -213,7 +211,6 @@ input[type="number"] {
 
 .header_lang {
   position: relative;
-  margin-right: 75px;
 }
 
 .header_lang:after {

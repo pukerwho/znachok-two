@@ -17,14 +17,14 @@
 </head>
 <body <?php echo body_class(); ?>>
   <header id="header" class="header" role="banner">
-    <div class="container relative mx-auto px-4 md:px-0">
-      <div class="header_container flex justify-between items-center bg-white rounded-full shadow-md py-2 px-0 lg:p-2">
+    <div class="container relative mx-auto px-4 md:px-0 z-10">
+      <div class="header_container left-4 lg:left-0 right-4 lg:right-0 flex justify-between items-center bg-white rounded-full shadow-md py-2 px-0 lg:p-2">
         <div class="logo mr-4 lg:mr-0 pl-4">
           <a href="<?php echo home_url(); ?>">
             <?php if (is_page_template("page-catalog.php") || is_page_template("page-cart.php")): ?>
-              <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/logo-green.svg" alt="Лого">
+              <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/logo-green.svg" alt="Лого" class="min-w-[105px] lg:min-w-[160px]">
             <?php else: ?>
-              <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/logo-yellow.svg" alt="Лого">
+              <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/logo-yellow.svg" alt="Лого" class="min-w-[105px] lg:min-w-[160px]">
             <?php endif; ?>
           </a>
         </div>
@@ -36,7 +36,7 @@
               'menu_class' => 'flex',
             ]); ?>
           </div>
-          <div class="header_lang flex">
+          <div class="header_lang mr-4 lg:mr-20 flex">
             <?php if (function_exists('pll_the_languages')) { 
               pll_the_languages(); 
             } ?>
@@ -55,7 +55,7 @@
       </div>
     </div>
   </header>
-  <div class="menu_mobile w-full h-full block lg:hidden fixed top-32">
+  <div class="menu_mobile w-full h-full hidden fixed top-32">
     <div class="bg-white rounded-2xl px-6 py-8 mx-4">
       <?php wp_nav_menu([
         'theme_location' => 'head_menu',

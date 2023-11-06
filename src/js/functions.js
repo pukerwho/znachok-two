@@ -7,6 +7,13 @@ containerPadding = (windowWidth - containerWidth)/2;
 
 $('.left-container').css({'margin-left': containerPadding + 'px'});
 
+$('.header_toggle').on('click', function(){
+  $(this).toggleClass('open');
+  $('body').toggleClass('overflow-hidden');
+  $('.modal-bg').toggleClass('show');
+  $('.menu_mobile').toggleClass('hidden block z-10');
+});
+
 var swiperSliderPerView;
 var swiperSpaceBetween;
 

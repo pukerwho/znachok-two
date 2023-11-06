@@ -139,12 +139,13 @@ function sendCheckout(e) {
 
   let checkoutPhone = $('.shopping-cart__order-phone').val();
   let checkoutOrders = JSON.parse(localStorage.getItem('products'));
-  let checkoutTotalSum = localStorage.getItem('totalSumProducts');
+  let checkoutTotalSum = 0;
   let txt = "<b>Телефон:</b> "+ checkoutPhone + "\n \n";
   txt += "<b>Заказ:</b> \n";
   
   for (order of checkoutOrders) {
-	txt += "Товар: " + order.name + "; Кол-во: " + order.qty + "; Сумма: " + order.price + "\n";
+	  txt += "Товар: " + order.name + "; Кол-во: " + order.qty + "; Сумма: " + order.price + "\n";
+    checkoutTotalSum = checkoutTotalSum + (order.qty*order.price);
   }
   txt += "\n <b>Итого:</b> "+ checkoutTotalSum + "\n \n";
 
