@@ -9,6 +9,10 @@
 	    ->where( 'post_type', '=', 'products' )
 	  	->add_tab( __('Додаткова інформація'), array(
         Field::make( 'media_gallery', 'product_photos', 'Фотографії' )->set_type( array( 'image' ) ),
+        Field::make( 'complex', 'product_videos', 'Відео' )
+          ->add_fields( array(
+            Field::make( 'text', 'product_videos_url', 'Посилання на Ютуб' ),
+        ) ),
         Field::make( 'text', 'product_price', 'Ціна' ),
         Field::make( 'text', 'product_price_sale', 'Ціна розпродажу' ),
         Field::make( 'text', 'product_articl', 'Арктікул' ),
