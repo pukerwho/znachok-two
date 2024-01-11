@@ -97,6 +97,8 @@ if (addForm) {
   addForm.addEventListener('click', (e) => {
     const name = document.querySelector('#billing_first_name').value;
     const phone = document.querySelector('#billing_phone').value;
+    const city = document.querySelector('#novaposhta_city').value;
+    const warehouse = document.querySelector('#novaposhta_cities').value;
 
     let checkoutProducts = JSON.parse(localStorage.getItem('products'));
     let checkoutTotalSum = 0;
@@ -110,6 +112,8 @@ if (addForm) {
       'action': 'telegram_add_action',
       'name': name,
       'phone': phone,
+      'city': city,
+      'warehouse': warehouse,
       'checkoutOrders': checkoutOrders,
       'checkoutTotalSum': checkoutTotalSum,
     };

@@ -2,6 +2,8 @@
 function telegramMessage() {
   $name = stripslashes_deep($_POST['name']);
   $phone = stripslashes_deep($_POST['phone']);
+  $city = stripslashes_deep($_POST['city']);
+  $warehouse = stripslashes_deep($_POST['warehouse']);
   $checkoutOrders = stripslashes_deep($_POST['checkoutOrders']);
   $checkoutTotalSum = stripslashes_deep($_POST['checkoutTotalSum']);
 
@@ -10,6 +12,8 @@ function telegramMessage() {
   $content = "";
   $content .= "<b>Ім'я</b>: $name\n";
   $content .= "<b>Телефон</b>: $phone\n";
+  $content .= "<b>Місто</b>: $city\n";
+  $content .= "<b>Відділення</b>: $warehouse\n";
   $content .= "$checkoutOrders\n";
   $content .= "<b>Разом</b>: $checkoutTotalSum\n";
 

@@ -87,12 +87,12 @@ Template Name: Кошик
           </div>
           <div class="novaposhta_cities_list mb-6">
             <div class="text-lg mb-1"><?php _e("Ваше місто", "treba-wp"); ?></div>
-            <input type="text" class="novaposhta_city w-full input-text" placeholder="<?php _e("Наприклад, Київ", "treba-wp"); ?>">
+            <input id="novaposhta_city" type="text" class="novaposhta_city w-full input-text" placeholder="<?php _e("Наприклад, Київ", "treba-wp"); ?>">
             <div class="novaposhta_cities hidden h-[150px] overflow-y-scroll custom-select"></div>
           </div>
           <div class="novaposhta_cities_warehouses hidden">
             <div class="text-lg mb-1"><?php _e("Виберіть відділення", "treba-wp"); ?></div>
-            <input type="text" class="novaposhta_warehouse w-full input-text" placeholder="<?php _e("Номер відділення", "treba-wp"); ?>">
+            <input id="novaposhta_warehouse" type="text" class="novaposhta_warehouse w-full input-text" placeholder="<?php _e("Номер відділення", "treba-wp"); ?>">
             <div class="novaposhta_warehouses hidden h-[150px] overflow-y-scroll custom-select"></div>
           </div>
         </div>
