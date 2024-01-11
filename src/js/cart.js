@@ -98,7 +98,7 @@ if (addForm) {
     const name = document.querySelector('#billing_first_name').value;
     const phone = document.querySelector('#billing_phone').value;
     const city = document.querySelector('#novaposhta_city').value;
-    const warehouse = document.querySelector('#novaposhta_cities').value;
+    const warehouse = document.querySelector('#novaposhta_warehouse').value;
 
     let checkoutProducts = JSON.parse(localStorage.getItem('products'));
     let checkoutTotalSum = 0;
