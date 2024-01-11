@@ -5,3 +5,4 @@ import "./functions";
 import "./price-range";
 import "./filters";
 import "./cart";
+import "./novaposhta";

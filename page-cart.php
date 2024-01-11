@@ -59,7 +59,7 @@ Template Name: Кошик
       <!-- Контакти -->
       <div class="checkout_box mb-12">
         <h2 class="font-black text-3xl mb-4"><?php _e('Ваші контакти', 'treba-wp'); ?></h2>
-        <div>
+        <div class="mb-12">
           <p class="form-row form-row-first validate-required" id="billing_first_name_field" data-priority="10">
             <label for="billing_first_name" class="screen-reader-text"><?php _e("Ім'я", "treba-wp"); ?>&nbsp;
               <abbr class="required" title="обязательно">*</abbr>
@@ -76,6 +76,25 @@ Template Name: Кошик
               <input type="tel" class="input-text " name="billing_phone" id="billing_phone" placeholder="Телефон" value="" autocomplete="tel">
             </span>
           </p>
+        </div>
+        <h2 class="font-black text-3xl mb-4"><?php _e('Доставка', 'treba-wp'); ?></h2>
+        <div>
+          <div class="flex items-center mb-6">
+            <div class="mr-2">
+              <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/np_logo.svg" alt="Нова пошта" class="w-[24px]">
+            </div>
+            <div class="text-xl"><?php _e("Новою поштою", "treba-wp"); ?></div>
+          </div>
+          <div class="novaposhta_cities_list mb-6">
+            <div class="text-lg mb-1"><?php _e("Ваше місто", "treba-wp"); ?></div>
+            <input type="text" class="novaposhta_city w-full input-text" placeholder="<?php _e("Наприклад, Київ", "treba-wp"); ?>">
+            <div class="novaposhta_cities hidden h-[150px] overflow-y-scroll custom-select"></div>
+          </div>
+          <div class="novaposhta_cities_warehouses hidden">
+            <div class="text-lg mb-1"><?php _e("Виберіть відділення", "treba-wp"); ?></div>
+            <input type="text" class="novaposhta_warehouse w-full input-text" placeholder="<?php _e("Номер відділення", "treba-wp"); ?>">
+            <div class="novaposhta_warehouses hidden h-[150px] overflow-y-scroll custom-select"></div>
+          </div>
         </div>
       </div>
       <!-- END Контакти -->
@@ -95,6 +114,6 @@ Template Name: Кошик
   </div>
 </div>
 
-
+<input type="hidden" class="numbercode" value="922ff431a91502810902217ae6edac74">
 
 <?php get_footer(); ?>

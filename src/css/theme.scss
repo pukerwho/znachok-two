@@ -168,15 +168,16 @@ p {
   backdrop-filter: blur(20px);
 }
 
-input.input-text {
+input.input-text, .custom-select {
   width: 100%;
-  font-size: 12px;
+  font-size: 16px;
   border: 1px solid #DBDBDB;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   border-radius: 12px;
   padding: 12px 10px;
 }
+
 
 input[type="number"] {
   width: 35px;
