@@ -23,6 +23,17 @@ function telegramMessage() {
     'parse_mode' => 'HTML'
   ];
   $response = file_get_contents("https://api.telegram.org/bot".$apiToken."/sendMessage?" . http_build_query($data) );  
+
+  $subject = '['.$_SERVER['HTTP_HOST'].'] Нове замовлення на сайті Znachok';
+
+  $headers = array(
+    'Content-Type: text/html; charset=UTF-8',
+    'From: Znachok <info@znachok.ua>',
+  );
+  $emailaddress = get_bloginfo('admin_email');
+
+  @wp_mail( $emailaddress, $subject, $content, $headers );
+
   echo $response;
   wp_die();
 }
