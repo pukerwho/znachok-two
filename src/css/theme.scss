@@ -138,10 +138,8 @@ p {
 }
 
 .btn.big {
-  min-height: 75px;
   font-size: var(--big_font);
   border-radius: 30px;
-  padding: 0px 81px;
 }
 
 .btn.medium {
@@ -479,10 +477,6 @@ html[lang="ru-RU"] .header_lang:after {
   left: 0;
   background: url("../../img/custom-line-bg.svg");
   background-size: cover;
-}
-
-.welcome {
-  min-height: 100vh;
 }
 
 .news_card {

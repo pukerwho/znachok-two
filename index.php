@@ -5,12 +5,12 @@
 		<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/top-corner-img.svg" alt="<?php _e('Значки', 'treba-wp'); ?>" class="hidden lg:block">
 		<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/top-corner-img-mobile.svg" alt="<?php _e('Значки', 'treba-wp'); ?>" class="block lg:hidden">
 	</div>
-	<div class="left-side-img">
+	<div class="left-side-img hidden lg:block">
 		<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/left-side-img.svg" alt="<?php _e('Значки', 'treba-wp'); ?>">
 	</div>
 
 	<!-- WELCOME BLOCK -->
-	<div class="welcome pt-36 lg:pt-48 mb-20 lg:mb-48">
+	<div class="welcome lg:h-screen pt-36 lg:pt-48 mb-20 lg:mb-48">
 		<div class="container mx-auto px-4 md:px-0">
 			<div class="w-full lg:w-6/12 welcome_content ">
 				<h1 class="text-3xl lg:text-6xl font-black lg:leading-tight mb-6"><?php _e('Авторські значки та фурнітура', 'treba-wp'); ?></h1>
@@ -28,10 +28,10 @@
 	<!-- END WELCOME BLOCK -->
 
 	<!-- ПОПУЛЯРНЫЕ ТОВАРЫ НА ГЛАВНОЙ -->
-	<div class="popular mb-20 lg:mb-64">
+	<div class="popular lg:mb-64">
 		<div class="container mx-auto px-4 md:px-0">
 			<div class="w-full flex items-center justify-between mb-16">
-				<h2 class="text-2xl lg:text-6xl font-black leading-none mr-4"><?php _e('Популярні товари', 'treba-wp'); ?></h2>
+				<h2 class="text-2xl lg:text-6xl font-black leading-none mr-4"><?php _e('Каталог', 'treba-wp'); ?></h2>
 
 				<!-- Swiper Навигация -->
 				<div class="popular_arrows relative flex">
@@ -46,13 +46,14 @@
 
 			</div>
 		</div>
-		
-			<div class="swiper-container swiper-popular-product-container left-container">
+
+		<div class="mb-10">
+			<div class="swiper-container swiper-popular-product-container left-container ">
 				<div class="swiper-wrapper">
 					<?php 
 						$query = new WP_Query( array( 
 							'post_type' => 'products', 
-							'posts_per_page' => 8,
+							'posts_per_page' => 9,
 							'order'    => 'DESC',
 						) );
 					if ($query->have_posts()) : while ($query->have_posts()) : $query->the_post(); ?>
@@ -97,6 +98,10 @@
 					<?php endwhile; endif; wp_reset_postdata(); ?>
 				</div>
 			</div>
+    </div>
+    <div class="flex justify-center">
+      <a href="<?php echo get_page_url("page-catalog"); ?>" class="btn red big fill font-black"><?php _e('Дивитися всі товари', 'treba-wp'); ?></a>
+    </div>
 		
 	</div>
 	<!-- END ПОПУЛЯРНЫЕ ТОВАРЫ НА ГЛАВНОЙ -->
@@ -104,19 +109,19 @@
 	<!-- БЛОК О НАС НА ГЛАВНОЙ -->
 	<div class="about bg_yellow relative py-48 lg:mb-20">
 		<!-- IMAGES (ICONS) -->
-		<div class="about-top-left">
+		<div class="about-top-left hidden lg:block">
 			<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/about-top-left.png">
 		</div>
-		<div class="about-top-center">
+		<div class="about-top-center hidden lg:block">
 			<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/about-top-center.svg">
 		</div>
-		<div class="about-top-right">
+		<div class="about-top-right hidden lg:block">
 			<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/about-top-right.png">
 		</div>
-		<div class="about-bottom-left">
+		<div class="about-bottom-left hidden lg:block">
 			<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/about-bottom-left.png">
 		</div>
-		<div class="about-bottom-right">
+		<div class="about-bottom-right hidden lg:block">
 			<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/about-bottom-right.png">
 		</div>
 		<!-- END IMAGES (ICONS) -->

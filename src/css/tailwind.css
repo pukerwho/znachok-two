@@ -165,3 +165,7 @@ body {
 .page_empty_cart .cart_content {
   @apply hidden;
 }
+
+.btn.big {
+  @apply min-h-[55px] lg:min-h-[75px] px-[45px] lg:px-[80px]
+}
