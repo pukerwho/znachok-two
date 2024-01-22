@@ -106,7 +106,7 @@ Template Name: Каталог
             $current_page = !empty( $_GET['page'] ) ? $_GET['page'] : 1;
 						$query = new WP_Query( array( 
 							'post_type' => 'products', 
-							'posts_per_page' => 8,
+							'posts_per_page' => 12,
 							'order'    => 'DESC',
               'paged' => $current_page,
 						) );
