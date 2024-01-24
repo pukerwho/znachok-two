@@ -7,6 +7,7 @@
 <head>
   <title><?php echo $current_title; ?></title>
   <meta charset="<?php bloginfo( 'charset' ); ?>">
+
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><![endif]-->
   <!-- <link rel="stylesheet" href="../css/style.css" inline> -->
@@ -16,9 +17,9 @@
   <?php echo carbon_get_theme_option('crb_google_analytics'); ?>
 </head>
 <body <?php echo body_class(); ?>>
-  <header id="header" class="header" role="banner">
+  <header id="header" class="header fixed top-[30px] left-4 lg:left-0 right-4 lg:right-0 z-10" role="banner">
     <div class="container relative mx-auto px-4 md:px-0 z-10">
-      <div class="header_container left-4 lg:left-0 right-4 lg:right-0 flex justify-between items-center bg-white rounded-full shadow-md py-2 px-0 lg:p-2">
+      <div class="flex justify-between items-center bg-white rounded-full shadow-md py-2 px-0 lg:p-2">
         <div class="logo mr-4 lg:mr-0 pl-4">
           <a href="<?php echo home_url(); ?>">
             <?php if (is_page_template("page-catalog.php") || is_page_template("page-cart.php")): ?>
@@ -29,14 +30,17 @@
           </a>
         </div>
         <div class="header_content flex justify-between lg:justify-start items-center">
-          <div class="header_menu hidden lg:block">
+          <div class="header_menu hidden lg:block lg:mr-10">
             <?php wp_nav_menu([
               'theme_location' => 'head_menu',
               'container' => 'ul',
               'menu_class' => 'flex',
             ]); ?>
           </div>
-          <div class="header_lang mr-4 lg:mr-20 flex">
+          <div class="lg:mr-10">
+            <div class="btn red small fill font-black"><a href="tel:093-222-20-20">093-222-20-20</a></div>
+          </div>
+          <div class="header_lang mr-4 lg:mr-10 flex">
             <?php if (function_exists('pll_the_languages')) { 
               pll_the_languages(); 
             } ?>

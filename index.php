@@ -13,9 +13,9 @@
 	<div class="welcome lg:h-screen pt-36 lg:pt-48 mb-20 lg:mb-48">
 		<div class="container mx-auto px-4 md:px-0">
 			<div class="w-full lg:w-6/12 welcome_content ">
-				<h1 class="text-3xl lg:text-6xl font-black lg:leading-tight mb-6"><?php _e('Авторські значки та фурнітура', 'treba-wp'); ?></h1>
+				<h1 class="text-3xl lg:text-6xl font-black lg:leading-tight mb-6"><?php _e('Авторські значки та сувеніри на замовлення', 'treba-wp'); ?></h1>
 				<div class="text-lg mb-10">
-					<?php echo crb_get_i18n_theme_option('crb_main_description'); ?>
+					<?php _e("З нами світ яскравіше", "treba-wp"); ?>
 				</div>
 				<div class="inline-block">
 					<div class="btn red big fill font-black">
@@ -37,7 +37,7 @@
         <?php 
           $query = new WP_Query( array( 
             'post_type' => 'products', 
-            'posts_per_page' => 9,
+            'posts_per_page' => 6,
             'order'    => 'DESC',
           ) );
         if ($query->have_posts()) : while ($query->have_posts()) : $query->the_post(); ?>
@@ -181,7 +181,7 @@
 									<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/phone.svg">
 								</div>
 								<div>
-									+380 63 622 35 55
+									<a href="tel:093-222-20-20">093-222-20-20</a>
 								</div>
 							</div>
 							<!-- LOCATION -->

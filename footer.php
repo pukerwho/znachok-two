@@ -27,11 +27,14 @@
       </div>
       <div class="hidden lg:block w-full lg:w-4/12">
         <div class="text-sm text-white mb-1"><?php _e('Будьте в курсі наших новин', 'treba-wp'); ?></div>
-        <div class="flex items-center">
+        <div class="flex items-center mb-4">
           <input type="text" name="newsletters" placeholder="<?php _e('Ваш email', 'treba-wp'); ?>" class="rounded-l-lg py-3 px-2">
           <div class="bg_yellow text-center rounded-r-lg px-12 py-3">
             <?php _e('Підписатися', 'treba-wp'); ?>
           </div>
+        </div>
+        <div class="inline-block">
+          <div class="btn red small fill font-black"><a href="tel:093-222-20-20">093-222-20-20</a></div>
         </div>
       </div>
     </div>

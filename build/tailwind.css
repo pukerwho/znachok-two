@@ -657,6 +657,10 @@ video {
   top: 8rem;
 }
 
+.top-\[30px\] {
+  top: 30px;
+}
+
 .z-1 {
   z-index: 1;
 }
@@ -853,6 +857,10 @@ video {
 
 .w-full {
   width: 100%;
+}
+
+.w-\[16px\] {
+  width: 16px;
 }
 
 .min-w-\[105px\] {
@@ -1346,6 +1354,11 @@ video {
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.text-theme-red {
+  --tw-text-opacity: 1;
+  color: rgb(234 82 47 / var(--tw-text-opacity));
 }
 
 .underline {
@@ -2126,6 +2139,10 @@ body {
 
   .lg\:mr-0 {
     margin-right: 0px;
+  }
+
+  .lg\:mr-10 {
+    margin-right: 2.5rem;
   }
 
   .lg\:mr-20 {
