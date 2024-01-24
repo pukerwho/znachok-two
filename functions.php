@@ -169,9 +169,12 @@ function tutCount($id) {
 
 function my_custom_upload_mimes($mimes = array()) {
   $mimes['svg'] = "image/svg+xml";
+  $mimes['ico'] = "image/x-icon";
   return $mimes;
 }
 add_action('upload_mimes', 'my_custom_upload_mimes');
+
+
 
 //Carbonfields + Polylang
 function crb_get_i18n_suffix() {
