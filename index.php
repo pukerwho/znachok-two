@@ -2,7 +2,7 @@
 
 <div class="main-page">
 	<div class="top-corner-img flex justify-end">
-		<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/top-corner-img.svg" alt="<?php _e('Значки', 'treba-wp'); ?>" class="hidden lg:block w-3/4">
+		<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/top-corner-img.svg" alt="<?php _e('Значки', 'treba-wp'); ?>" class="hidden lg:block">
 		<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/top-corner-img-mobile.svg" alt="<?php _e('Значки', 'treba-wp'); ?>" class="block lg:hidden">
 	</div>
 	<div class="left-side-img hidden lg:block">
