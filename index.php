@@ -1,8 +1,8 @@
 <?php get_header(); ?>
 
 <div class="main-page">
-	<div class="top-corner-img">
-		<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/top-corner-img.svg" alt="<?php _e('Значки', 'treba-wp'); ?>" class="hidden lg:block">
+	<div class="top-corner-img flex justify-end">
+		<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/top-corner-img.svg" alt="<?php _e('Значки', 'treba-wp'); ?>" class="hidden lg:block w-3/4">
 		<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/top-corner-img-mobile.svg" alt="<?php _e('Значки', 'treba-wp'); ?>" class="block lg:hidden">
 	</div>
 	<div class="left-side-img hidden lg:block">
@@ -155,7 +155,7 @@
 							</h2>	
 						</div>
 						
-						<div class="flex items-center justify-center px-4 lg:px-16 mb-6 lg:mb-16">
+						<div class="flex items-center justify-center relative px-4 lg:px-16 mb-6 lg:mb-16 z-1">
 							<div class="text-xl lg:text-2xl font-bold mr-8 lg:mr-20">
 								<?php _e('Завжди будемо раді відповісти на ваші запитання', 'treba-wp'); ?>
 							</div>
@@ -165,7 +165,7 @@
 								</div>
 							</div>
 						</div>
-						<div class="flex flex-col lg:flex-row lg:items-center -mx-1 pb-6 lg:pb-32 px-4 lg:px-16">
+						<div class="flex flex-col lg:flex-row lg:items-center relative -mx-1 pb-6 lg:pb-32 px-4 lg:px-16 z-1">
 							<!-- EMAIL -->
 							<div class="w-full lg:w-1/3 flex items-center px-1 mb-4 lg:mb-0">
 								<div class="mr-2">
@@ -194,7 +194,7 @@
 								</div>
 							</div>
 						</div>
-						<div class="flex justify-center lg:hidden pb-6">
+						<div class="flex justify-center lg:hidden pb-6 relative z-1">
 							<div class="btn red big fill font-black relative">
 								<?php _e("Зв'язатися", 'treba-wp'); ?>
 							</div>

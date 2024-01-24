@@ -242,8 +242,6 @@ html[lang="ru-RU"] .header_lang:after {
 }
 
 .header_cart {
-  width: 60px;
-  height: 60px;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -258,10 +256,6 @@ html[lang="ru-RU"] .header_lang:after {
   align-items: center;
   background-color: var(--color_purple);
   border-radius: 50%;
-}
-
-.header_cart_icon {
-  width: 21px;
 }
 
 .header_cart span {
