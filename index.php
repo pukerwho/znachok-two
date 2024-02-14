@@ -182,7 +182,7 @@
 								</div>
 								<div>
                   <?php $phones = carbon_get_theme_option("crb_contact_phones"); foreach (array_slice($phones, 0, 1) as $phone): ?>
-									<a href="tel:<?php echo $phone("crb_contact_phone"); ?>"><?php echo $phone("crb_contact_phone"); ?></a>
+									<a href="tel:<?php echo $phone["crb_contact_phone"]; ?>"><?php echo $phone["crb_contact_phone"]; ?></a>
                   <?php endforeach; ?>
 								</div>
 							</div>
@@ -192,7 +192,7 @@
 									<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/location.svg">
 								</div>
 								<div>
-                  <?php echo carbon_get_theme_option("crb_contact_address"); ?>
+                  <?php echo crb_get_i18n_theme_option("crb_contact_address"); ?>
 								</div>
 							</div>
 						</div>
