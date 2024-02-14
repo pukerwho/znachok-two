@@ -38,7 +38,9 @@
             ]); ?>
           </div>
           <div class="hidden lg:block lg:mr-10">
-            <div class="btn red small fill font-black"><a href="tel:093-222-20-20">093-222-20-20</a></div>
+            <?php $phones = carbon_get_theme_option("crb_contact_phones"); foreach (array_slice($phones, 0, 1) as $phone): ?>
+              <div class="btn red small fill font-black"><a href="tel:<?php echo $phone("crb_contact_phone"); ?>"><?php echo $phone("crb_contact_phone"); ?></a></div>
+            <?php endforeach; ?>
           </div>
           <div class="header_lang mr-2 lg:mr-10 flex">
             <?php if (function_exists('pll_the_languages')) { 

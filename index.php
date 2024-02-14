@@ -172,7 +172,7 @@
 									<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/email.svg">
 								</div>
 								<div>
-									info@znachok.com.ua
+									<?php echo carbon_get_theme_option("crb_contact_email"); ?>
 								</div>
 							</div>
 							<!-- PHONE -->
@@ -181,7 +181,9 @@
 									<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/phone.svg">
 								</div>
 								<div>
-									<a href="tel:093-222-20-20">093-222-20-20</a>
+                  <?php $phones = carbon_get_theme_option("crb_contact_phones"); foreach (array_slice($phones, 0, 1) as $phone): ?>
+									<a href="tel:<?php echo $phone("crb_contact_phone"); ?>"><?php echo $phone("crb_contact_phone"); ?></a>
+                  <?php endforeach; ?>
 								</div>
 							</div>
 							<!-- LOCATION -->
@@ -190,7 +192,7 @@
 									<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/location.svg">
 								</div>
 								<div>
-									Берестейская 39, Киев	
+                  <?php echo carbon_get_theme_option("crb_contact_address"); ?>
 								</div>
 							</div>
 						</div>

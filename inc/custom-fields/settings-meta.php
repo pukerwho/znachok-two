@@ -24,6 +24,7 @@ function crb_attach_theme_options() {
       Field::make( 'text', 'crb_contact_instagram', 'Instagram' ),
       Field::make( 'text', 'crb_contact_twitter', 'Twitter' ),
       Field::make( 'text', 'crb_contact_pinterest', 'Pinterest' ),
+      Field::make( 'text', 'crb_contact_tiktok', 'Tik tok' ),
     ) )
     ->add_tab( __('Клиенты'), array(
       Field::make( 'media_gallery', 'crb_clients', 'Клиент' )->set_type( array( 'image' ) ),
