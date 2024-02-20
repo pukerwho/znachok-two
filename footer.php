@@ -13,8 +13,8 @@
       </div>
       <div class="hidden lg:block w-full lg:w-2/12 text-white">
         <?php wp_nav_menu([
-          'theme_location' => 'footer_one_menu',
-          'menu_id' => 'footer_one_menu',
+          'theme_location' => 'footer_menu',
+          'menu_id' => 'footer_menu',
           'menu_class' => ''
         ]); ?>
       </div>
