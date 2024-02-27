@@ -1281,10 +1281,6 @@ video {
   padding-top: 5rem;
 }
 
-.pt-24 {
-  padding-top: 6rem;
-}
-
 .pt-32 {
   padding-top: 8rem;
 }
@@ -1295,10 +1291,6 @@ video {
 
 .pt-6 {
   padding-top: 1.5rem;
-}
-
-.pt-28 {
-  padding-top: 7rem;
 }
 
 .text-center {
@@ -2390,10 +2382,6 @@ body {
 
   .lg\:pt-64 {
     padding-top: 16rem;
-  }
-
-  .lg\:pt-40 {
-    padding-top: 10rem;
   }
 
   .lg\:text-2xl {

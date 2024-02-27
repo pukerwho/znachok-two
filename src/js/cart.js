@@ -108,36 +108,39 @@ if (addForm) {
       checkoutOrders += "Товар: " + order.name + "; Кількість: " + order.qty + "; Ціна: " + order.price + "\n";
       checkoutTotalSum = checkoutTotalSum + (order.qty*order.price);
     }
-    let data = {
-      'action': 'telegram_add_action',
-      'name': name,
-      'phone': phone,
-      'city': city,
-      'warehouse': warehouse,
-      'checkoutOrders': checkoutOrders,
-      'checkoutTotalSum': checkoutTotalSum,
-    };
-    $.ajax({
-      url: ajaxurl,
-      data: data,
-      type: 'POST',
-      beforeSend : function(xhr) {
-        console.log('Загружаю')
-      },
-      success : function(data) {
-        if (data) {
-          console.log("відправили");
-          localStorage.removeItem('products');
-          $(".checkout_success").removeClass("hidden");
-          showProducts();
-          cartCount();
-        }
-      }
-    });
-    return;
+    sendTelegram(name, phone, city, warehouse, checkoutOrders, checkoutTotalSum);
   })
 }
 
+function sendTelegram(name, phone, city, warehouse, checkoutOrders, checkoutTotalSum) {
+  let data = {
+    'action': 'telegram_add_action',
+    'name': name,
+    'phone': phone,
+    'city': city,
+    'warehouse': warehouse,
+    'checkoutOrders': checkoutOrders,
+    'checkoutTotalSum': checkoutTotalSum,
+  };
+  $.ajax({
+    url: ajaxurl,
+    data: data,
+    type: 'POST',
+    beforeSend : function(xhr) {
+      console.log('Загружаю')
+    },
+    success : function(data) {
+      if (data) {
+        console.log("відправили");
+        localStorage.removeItem('products');
+        $(".checkout_success").removeClass("hidden");
+        showProducts();
+        cartCount();
+      }
+    }
+  });
+  return;
+}
 
 
 function showProducts() {

@@ -78,7 +78,7 @@ Template Name: Кошик
           </p>
         </div>
         <h2 class="font-black text-3xl mb-4"><?php _e('Доставка', 'treba-wp'); ?></h2>
-        <div>
+        <div class="mb-12">
           <div class="flex items-center mb-6">
             <div class="mr-2">
               <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/np_logo.svg" alt="Нова пошта" class="w-[24px]">
@@ -94,6 +94,17 @@ Template Name: Кошик
             <div class="text-lg mb-1"><?php _e("Виберіть відділення", "treba-wp"); ?></div>
             <input id="novaposhta_warehouse" type="text" class="novaposhta_warehouse w-full input-text" placeholder="<?php _e("Номер відділення", "treba-wp"); ?>">
             <div class="novaposhta_warehouses hidden h-[150px] overflow-y-scroll custom-select"></div>
+          </div>
+        </div>
+        <h2 class="font-black text-3xl mb-4"><?php _e('Оплата', 'treba-wp'); ?></h2>
+        <div>
+          <div>
+            <input type="radio" id="onlinepay" name="paymethod" value="onlinepay-value" checked />
+            <label for="onlinepay">Онлайн</label>
+          </div>
+          <div>
+            <input type="radio" id="receiptpay" name="paymethod" value="receiptpay-value" />
+            <label for="receiptpay">При отриманні</label>
           </div>
         </div>
       </div>
