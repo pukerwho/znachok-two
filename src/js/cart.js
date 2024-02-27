@@ -99,6 +99,8 @@ if (addForm) {
     const phone = document.querySelector('#billing_phone').value;
     const city = document.querySelector('#novaposhta_city').value;
     const warehouse = document.querySelector('#novaposhta_warehouse').value;
+    const onlinepay =  document.querySelector('input[name=paymethod]:checked').value;
+    console.log(onlinepay);
 
     let checkoutProducts = JSON.parse(localStorage.getItem('products'));
     let checkoutTotalSum = 0;
@@ -108,7 +110,11 @@ if (addForm) {
       checkoutOrders += "Товар: " + order.name + "; Кількість: " + order.qty + "; Ціна: " + order.price + "\n";
       checkoutTotalSum = checkoutTotalSum + (order.qty*order.price);
     }
-    sendTelegram(name, phone, city, warehouse, checkoutOrders, checkoutTotalSum);
+    if (onlinepay === "onlinepay-value") {
+      payLiqpay()
+    } else {
+      sendTelegram(name, phone, city, warehouse, checkoutOrders, checkoutTotalSum);
+    }
   })
 }
 
@@ -127,21 +133,30 @@ function sendTelegram(name, phone, city, warehouse, checkoutOrders, checkoutTota
     data: data,
     type: 'POST',
     beforeSend : function(xhr) {
-      console.log('Загружаю')
+      beforeSend();
     },
     success : function(data) {
       if (data) {
-        console.log("відправили");
-        localStorage.removeItem('products');
-        $(".checkout_success").removeClass("hidden");
-        showProducts();
-        cartCount();
+        successOrder();
       }
     }
   });
   return;
 }
 
+function beforeSend() {
+  let bgmodal = document.querySelector(".modal-bg");
+  bgmodal.classList.add("show", "!z-10");
+}
+
+function successOrder() {
+  let bgmodal = document.querySelector(".modal-bg");
+  bgmodal.classList.remove("show", "z-10");
+  localStorage.removeItem('products');
+  $(".checkout_success").removeClass("hidden");
+  showProducts();
+  cartCount();
+}
 
 function showProducts() {
   if (CheckBrowser()) {
