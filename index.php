@@ -85,7 +85,7 @@
 	<!-- END БЛОК О НАС НА ГЛАВНОЙ -->
 
 	<!-- КЛИЕНТЫ НА ГЛАВНОЙ -->
-	<div class="clients mb-20">
+	<div class="clients hidden mb-20">
 		<div class="container mx-auto px-4 lg:px-0">
 			<h2 class="text-4xl lg:text-6xl font-black leading-none text-center mb-16"><?php _e('Кліенти', 'treba-wp'); ?></h2>
 			<div class="flex flex-wrap -mx-2">
@@ -105,7 +105,7 @@
 	<!-- END КЛИЕНТЫ НА ГЛАВНОЙ -->
 
 	<!-- НОВОСТИ НА ГЛАВНОЙ -->
-	<div class="news">
+	<div class="news hidden">
 		<div class="container mx-auto px-4 lg:px-0 mb-16 lg:mb-32">
 			<h2 class="text-4xl lg:text-6xl font-black leading-none text-center mb-24 lg:mb-48"><?php _e('Новини', 'treba-wp'); ?></h2>
 			<div class="flex flex-wrap lg:-mx-2">

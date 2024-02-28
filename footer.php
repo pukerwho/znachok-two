@@ -74,6 +74,19 @@
   </div>
 </div>
 
+<div class="modal hidden" data-modal-name="checkout">
+  <div class="w-full h-full flex items-center justify-center fixed top-0 left-0 z-10">
+    <div class="container">
+      <div class="w-full md:w-3/5 bg-white shadow-lg rounded-xl mx-auto p-4">
+        <div class="text-xl mb-6">✅ <?php _e("Ваше замовлення сформовано", "treba-wp"); ?></div>
+        <div id="liqpay-btn-element">
+          <?php $getPrice = "<script>document.write(JSON.parse(localStorage.getItem('products')));</script>"; echo $getPrice; echo liqpayGo($getPrice); ?>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="modal-bg"></div>
 <?php wp_footer(); ?>
 

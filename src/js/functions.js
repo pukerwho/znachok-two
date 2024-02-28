@@ -38,6 +38,21 @@ var swiperPopularProduct = new Swiper('.swiper-popular-product-container', {
   },
 });
 
+let openModalClicks = document.querySelectorAll(".modal-open-js");
+let openModalClick;
+if (openModalClicks) {
+  for (openModalClick of openModalClicks) {
+    openModalClick.addEventListener("click", (e) => {
+      let name = openModalClick.dataset.modalName;
+      console.log(name);
+      let modal = document.querySelector(".modal[data-modal-name="+name+"]");
+      let bgmodal = document.querySelector(".modal-bg");
+      modal.classList.remove("hidden");
+      bgmodal.classList.add("show");
+    })
+  }
+}
+
 let closeModalClicks = document.querySelectorAll(".modal-close-js");
 let closeModalClick;
 if (closeModalClicks) {

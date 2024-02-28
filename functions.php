@@ -37,6 +37,7 @@ include('inc/create-custom-taxonomy.php');
 include('inc/meta-functions.php');
 include('inc/filter-catalog.php');
 include('inc/checkout-telegram.php');
+include('inc/checkout-liqpay.php');
 include('inc/super-links/super-functions.php');
 
 use Carbon_Fields\Container;
@@ -46,6 +47,7 @@ use Carbon_Fields\Block;
 add_action( 'after_setup_theme', 'crb_load' );
 function crb_load() {
     require_once __DIR__ . '/vendor/autoload.php';
+    require_once __DIR__ . '/vendor/liqpay-sdk/LiqPay.php';
     \Carbon_Fields\Carbon_Fields::boot();
     require_once get_template_directory() . '/inc/carbon-fields/carbon-fields-plugin.php';
     require_once get_template_directory() . '/inc/custom-fields/settings-meta.php';

@@ -110,11 +110,8 @@ if (addForm) {
       checkoutOrders += "Товар: " + order.name + "; Кількість: " + order.qty + "; Ціна: " + order.price + "\n";
       checkoutTotalSum = checkoutTotalSum + (order.qty*order.price);
     }
-    if (onlinepay === "onlinepay-value") {
-      payLiqpay()
-    } else {
-      sendTelegram(name, phone, city, warehouse, checkoutOrders, checkoutTotalSum);
-    }
+    // sendTelegram(name, phone, city, warehouse, checkoutOrders, checkoutTotalSum);
+    payLiqpay(name, phone, city, warehouse, checkoutOrders, checkoutTotalSum);
   })
 }
 
@@ -144,9 +141,42 @@ function sendTelegram(name, phone, city, warehouse, checkoutOrders, checkoutTota
   return;
 }
 
+function payLiqpay(name, phone, city, warehouse, checkoutOrders, checkoutTotalSum) {
+  let data = {
+    'action': 'payLiqpay_action',
+    'checkoutTotalSum': checkoutTotalSum,
+  };
+  $.ajax({
+    url: ajaxurl,
+    data: data,
+    type: 'POST',
+    beforeSend : function(xhr) {
+      console.log("відправляємо");
+      beforeSend();
+    },
+    success : function(data) {
+      if (data) {
+        console.log(data);
+        liqpayBtn(data);
+        // successOrder();
+      }
+    }
+  });
+  return;
+}
+
+function liqpayBtn(data) {
+  let modalPay = document.querySelector(".modal[data-modal-name='checkout']");
+  let liqpayBtnElement = document.querySelector("#liqpay-btn-element");
+  let bgmodal = document.querySelector(".modal-bg");
+  modalPay.classList.remove("hidden");
+  bgmodal.classList.add("show");
+  // liqpayBtnElement.append(data);
+}
+
 function beforeSend() {
   let bgmodal = document.querySelector(".modal-bg");
-  bgmodal.classList.add("show", "!z-10");
+  // bgmodal.classList.add("show", "!z-10");
 }
 
 function successOrder() {

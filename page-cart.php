@@ -109,14 +109,14 @@ Template Name: Кошик
         </div>
       </div>
       <!-- END Контакти -->
-      
 
       <div class="cart_buttons flex flex-col md:flex-row md:justify-between md:items-center">
-        <div class="btn red rounded-2xl text-white relative px-8 py-5 mb-5 md:mb-0">
+        <div class="btn red rounded-2xl text-white relative px-8 py-5 mb-5 md:mb-0" >
           <a href="<?php echo get_page_url( 'page-catalog' ); ?>" class="w-full h-full absolute top-0 left-0"></a>
           <?php _e('Продовжити покупки', 'treba-wp'); ?>
         </div>
-        <div id="checkout_btn" class="btn red fill rounded-2xl text-white relative px-8 py-5">
+        
+        <div id="checkout_btn" class="btn red fill rounded-2xl text-white relative px-8 py-5" >
           <?php _e('Оформити замовлення', 'treba-wp'); ?>
         </div>
       </div>
