@@ -1,4 +1,6 @@
 var $ = require("jquery");
+var sha1 = require('js-sha1');
+require('dotenv').config();
 
 function openModal(name,string) {
   let modal = document.querySelector(".modal[data-modal-name="+name+"]");
@@ -37,6 +39,25 @@ function cartCount() {
   }
 }
 cartCount();
+
+function totalPrice() {
+  products = JSON.parse(localStorage.getItem('products'));
+  checkoutTotalSum = 0;
+  productLists = [];
+  productListsQty = [];
+  for (product of products) {
+    checkoutTotalSum = checkoutTotalSum + (product.qty*product.price);
+    productLists.push(product.name);
+    productListsQty.push(product.qty);
+  }
+  localStorage.setItem('totalPrice', JSON.stringify(checkoutTotalSum));
+  let inputTotalPrice = document.querySelector("#input-pay-price");
+  let inputProductsList = document.querySelector("#input-pay-products");
+  let inputProductsListQty = document.querySelector("#input-pay-products-qty");
+  inputTotalPrice.value = checkoutTotalSum;
+  inputProductsList.value = productLists;
+  inputProductsListQty.value = productListsQty;
+}
 
 // Що додаємо?
 let addToCartClicks = document.querySelectorAll(".add-to-cart-js");
@@ -111,7 +132,8 @@ if (addForm) {
       checkoutTotalSum = checkoutTotalSum + (order.qty*order.price);
     }
     // sendTelegram(name, phone, city, warehouse, checkoutOrders, checkoutTotalSum);
-    payLiqpay(name, phone, city, warehouse, checkoutOrders, checkoutTotalSum);
+    // getPublLiqKeys();
+    // payLiqpay(name, phone, city, warehouse, checkoutOrders, checkoutTotalSum);
   })
 }
 
@@ -157,7 +179,7 @@ function payLiqpay(name, phone, city, warehouse, checkoutOrders, checkoutTotalSu
     success : function(data) {
       if (data) {
         console.log(data);
-        liqpayBtn(data);
+        liqpayModalBtn(data);
         // successOrder();
       }
     }
@@ -165,7 +187,7 @@ function payLiqpay(name, phone, city, warehouse, checkoutOrders, checkoutTotalSu
   return;
 }
 
-function liqpayBtn(data) {
+function liqpayModalBtn(data) {
   let modalPay = document.querySelector(".modal[data-modal-name='checkout']");
   let liqpayBtnElement = document.querySelector("#liqpay-btn-element");
   let bgmodal = document.querySelector(".modal-bg");
@@ -304,13 +326,23 @@ function cartTotal() {
       cartTotalSum = cartTotalSum + ( parseFloat(iterator.price) * parseFloat(iterator.qty) );
     }
     $(".cart_totals span").html(cartTotalSum);
+    totalPrice();
   }
+}
+
+function emptyCart() {
+  localStorage.removeItem('products');
+  cartCount();
 }
 
 document.addEventListener('DOMContentLoaded', function(){
   let is_cart = document.body.classList.contains('page-template-page-cart');
+  let is_pay = document.body.classList.contains('page-template-page-pay');
   if (is_cart) {
     showProducts();
+  }
+  if (is_pay) {
+    emptyCart();
   }
 });
 
@@ -374,4 +406,3 @@ document.addEventListener('click',function(e){
     }
   }
 });
-

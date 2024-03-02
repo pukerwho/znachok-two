@@ -57,74 +57,82 @@ Template Name: Кошик
       </div>
 
       <!-- Контакти -->
-      <div class="checkout_box mb-12">
-        <h2 class="font-black text-3xl mb-4"><?php _e('Ваші контакти', 'treba-wp'); ?></h2>
-        <div class="mb-12">
-          <p class="form-row form-row-first validate-required" id="billing_first_name_field" data-priority="10">
-            <label for="billing_first_name" class="screen-reader-text"><?php _e("Ім'я", "treba-wp"); ?>&nbsp;
-              <abbr class="required" title="обязательно">*</abbr>
-            </label>
-            <span class="woocommerce-input-wrapper">
-              <input type="text" class="input-text " name="billing_first_name" id="billing_first_name" placeholder="Имя" value="" autocomplete="given-name">
-            </span>
-          </p>
-          <p class="form-row form-row-wide validate-required validate-phone" id="billing_phone_field" data-priority="100">
-            <label for="billing_phone" class="screen-reader-text">Телефон&nbsp;
-              <abbr class="required" title="обязательно">*</abbr>
-            </label>
-            <span class="woocommerce-input-wrapper">
-              <input type="tel" class="input-text " name="billing_phone" id="billing_phone" placeholder="Телефон" value="" autocomplete="tel">
-            </span>
-          </p>
-        </div>
-        <h2 class="font-black text-3xl mb-4"><?php _e('Доставка', 'treba-wp'); ?></h2>
-        <div>
-          <div class="flex items-center mb-6">
-            <div class="mr-2">
-              <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/np_logo.svg" alt="Нова пошта" class="w-[24px]">
+      <form action="/pay" method="post">
+        <div class="checkout_box mb-12">
+          <h2 class="font-black text-3xl mb-4"><?php _e('Ваші контакти', 'treba-wp'); ?></h2>
+          <div class="mb-12">
+            <p class="form-row form-row-first validate-required" id="billing_first_name_field" data-priority="10">
+              <label for="billing_first_name" class="screen-reader-text"><?php _e("Ім'я", "treba-wp"); ?>&nbsp;
+                <abbr class="required" title="обязательно">*</abbr>
+              </label>
+              <span class="woocommerce-input-wrapper">
+                <input type="text" class="input-text " name="billing_first_name" id="billing_first_name" placeholder="Имя" value="" autocomplete="given-name" required>
+              </span>
+            </p>
+            <p class="form-row form-row-wide validate-required validate-phone" id="billing_phone_field" data-priority="100">
+              <label for="billing_phone" class="screen-reader-text">Телефон&nbsp;
+                <abbr class="required" title="обязательно">*</abbr>
+              </label>
+              <span class="woocommerce-input-wrapper">
+                <input type="tel" class="input-text " name="billing_phone" id="billing_phone" placeholder="Телефон" value="" autocomplete="tel" required>
+              </span>
+            </p>
+          </div>
+          <h2 class="font-black text-3xl mb-4"><?php _e('Доставка', 'treba-wp'); ?></h2>
+          <div>
+            <div class="flex items-center mb-6">
+              <div class="mr-2">
+                <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/np_logo.svg" alt="Нова пошта" class="w-[24px]">
+              </div>
+              <div class="text-xl"><?php _e("Новою поштою", "treba-wp"); ?></div>
             </div>
-            <div class="text-xl"><?php _e("Новою поштою", "treba-wp"); ?></div>
+            <div class="novaposhta_cities_list mb-6">
+              <div class="text-lg mb-1"><?php _e("Ваше місто", "treba-wp"); ?></div>
+              <input name="np_city" id="novaposhta_city" type="text" class="novaposhta_city w-full input-text" placeholder="<?php _e("Наприклад, Київ", "treba-wp"); ?>" required>
+              <div class="novaposhta_cities hidden h-[150px] overflow-y-scroll custom-select"></div>
+            </div>
+            <div class="novaposhta_cities_warehouses hidden">
+              <div class="text-lg mb-1"><?php _e("Виберіть відділення", "treba-wp"); ?></div>
+              <input name="np_warehouse" id="novaposhta_warehouse" type="text" class="novaposhta_warehouse w-full input-text" placeholder="<?php _e("Номер відділення", "treba-wp"); ?>" required>
+              <div class="novaposhta_warehouses hidden h-[150px] overflow-y-scroll custom-select"></div>
+            </div>
           </div>
-          <div class="novaposhta_cities_list mb-6">
-            <div class="text-lg mb-1"><?php _e("Ваше місто", "treba-wp"); ?></div>
-            <input id="novaposhta_city" type="text" class="novaposhta_city w-full input-text" placeholder="<?php _e("Наприклад, Київ", "treba-wp"); ?>">
-            <div class="novaposhta_cities hidden h-[150px] overflow-y-scroll custom-select"></div>
-          </div>
-          <div class="novaposhta_cities_warehouses hidden">
-            <div class="text-lg mb-1"><?php _e("Виберіть відділення", "treba-wp"); ?></div>
-            <input id="novaposhta_warehouse" type="text" class="novaposhta_warehouse w-full input-text" placeholder="<?php _e("Номер відділення", "treba-wp"); ?>">
-            <div class="novaposhta_warehouses hidden h-[150px] overflow-y-scroll custom-select"></div>
+          <h2 class="font-black text-3xl mb-4 hidden"><?php _e('Оплата', 'treba-wp'); ?></h2>
+          <div class="hidden">
+            <div>
+              <input type="radio" id="onlinepay" name="paymethod" value="onlinepay-value" checked />
+              <label for="onlinepay">Онлайн</label>
+            </div>
+            <div>
+              <input type="radio" id="receiptpay" name="paymethod" value="receiptpay-value" />
+              <label for="receiptpay">При отриманні</label>
+            </div>
           </div>
         </div>
-        <h2 class="font-black text-3xl mb-4 hidden"><?php _e('Оплата', 'treba-wp'); ?></h2>
-        <div class="hidden">
-          <div>
-            <input type="radio" id="onlinepay" name="paymethod" value="onlinepay-value" checked />
-            <label for="onlinepay">Онлайн</label>
-          </div>
-          <div>
-            <input type="radio" id="receiptpay" name="paymethod" value="receiptpay-value" />
-            <label for="receiptpay">При отриманні</label>
-          </div>
-        </div>
-      </div>
-      <!-- END Контакти -->
+        <!-- END Контакти -->
 
-      <div class="cart_buttons flex flex-col md:flex-row md:justify-between md:items-center">
-        <div class="btn red rounded-2xl text-white relative px-8 py-5 mb-5 md:mb-0" >
-          <a href="<?php echo get_page_url( 'page-catalog' ); ?>" class="w-full h-full absolute top-0 left-0"></a>
-          <?php _e('Продовжити покупки', 'treba-wp'); ?>
+        <div class="cart_buttons flex flex-col md:flex-row md:justify-between md:items-center">
+          <div class="btn red rounded-2xl text-white relative px-8 py-5 mb-5 md:mb-0" >
+            <a href="<?php echo get_page_url( 'page-catalog' ); ?>" class="w-full h-full absolute top-0 left-0"></a>
+            <?php _e('Продовжити покупки', 'treba-wp'); ?>
+          </div>
+          
+          <div id="checkout_btn" class="btn red fill rounded-2xl text-white relative px-8 py-5" style="display: none;">
+            <?php _e('Оформити замовлення', 'treba-wp'); ?>
+          </div>
+          <input type="hidden" value="" name="total_price" id="input-pay-price"/>
+          <input type="hidden" value="" name="products_list" id="input-pay-products"/>
+          <input type="hidden" value="" name="products_list_qty" id="input-pay-products-qty"/>
+          <input id="checkout_btn" type="submit" value="<?php _e('Оформити замовлення', 'treba-wp'); ?>" name="IsSubmit" class="btn red fill rounded-2xl text-white relative px-8 py-5" />
+          
         </div>
-        
-        <div id="checkout_btn" class="btn red fill rounded-2xl text-white relative px-8 py-5" >
-          <?php _e('Оформити замовлення', 'treba-wp'); ?>
-        </div>
-      </div>
+      </form>
     </div>
 
   </div>
 </div>
 
 <input type="hidden" class="numbercode" value="922ff431a91502810902217ae6edac74">
+
 
 <?php get_footer(); ?>

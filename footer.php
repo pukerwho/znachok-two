@@ -79,8 +79,6 @@
     <div class="container">
       <div class="w-full md:w-3/5 bg-white shadow-lg rounded-xl mx-auto p-4">
         <div class="text-xl mb-6">✅ <?php _e("Ваше замовлення сформовано", "treba-wp"); ?></div>
-        <div id="liqpay-btn-element">
-          <?php $getPrice = "<script>document.write(JSON.parse(localStorage.getItem('products')));</script>"; echo $getPrice; echo liqpayGo($getPrice); ?>
         </div>
       </div>
     </div>

@@ -23,6 +23,22 @@
 	      Field::make( 'text', 'product_info_size', 'Розмір' ),
 	      Field::make( 'text', 'product_info_pokritie', 'Покриття' ),
 	  ) );
+    Container::make( 'post_meta', 'More' )
+      ->where( 'post_type', '=', 'orders' )
+      ->add_fields( array(
+        Field::make( 'multiselect', 'crb_orders_status', 'Статус' )
+        ->add_options( array(
+          'Очікує підтвердження' => 'Очікує підтвердження',
+          'Не сплачено' => 'Не сплачено',
+          'Сплачено' => 'Сплачено',
+          'Відправлено' => 'Відправлено',
+        ) ),
+        Field::make( 'text', 'crb_orders_username', 'ПІБ'),
+        Field::make( 'text', 'crb_orders_userphone', 'Телефон'),
+        Field::make( 'text', 'crb_orders_np_city', 'НП - Місто'),
+        Field::make( 'text', 'crb_orders_np_warehouse', 'НП - Відділеня'),
+        Field::make( 'text', 'crb_orders_totalprice', 'Сума'),
+    ) );
 	}
 
 ?>
