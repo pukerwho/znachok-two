@@ -134,5 +134,4 @@ Template Name: Кошик
 
 <input type="hidden" class="numbercode" value="922ff431a91502810902217ae6edac74">
 
-
 <?php get_footer(); ?>

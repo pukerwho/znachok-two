@@ -15,6 +15,7 @@ $np_warehouse = $_POST['np_warehouse'];
 $total_price = $_POST['total_price'];
 $products_list = $_POST['products_list'];
 $products_list_qty = $_POST['products_list_qty'];
+$order_id = 'order_id_' + date("Ymdhis");
 
 // $my_post = array(
 //   'post_title'    => $post_name,
@@ -46,7 +47,7 @@ $products_list_qty = $_POST['products_list_qty'];
               'amount'         => $total_price,
               'currency'       => 'UAH',
               'description'    => 'Оплата замовлення на сайті znachok.ua',
-              'order_id'       => 'order_id_1',
+              'order_id'       => $order_id,
               'version'        => '3',
               'language'        => 'uk',
             ));
