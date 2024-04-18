@@ -85,6 +85,14 @@
   </div>
 </div>
 
+<div class="">
+  <div class="btn_up hidden fixed bottom-8 right-4 bg_red text-white rounded-full cursor-pointer p-2 z-1">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
+      <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5" />
+    </svg>
+  </div>
+</div>
+
 <div class="modal-bg"></div>
 <?php wp_footer(); ?>
 

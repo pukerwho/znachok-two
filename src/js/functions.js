@@ -67,3 +67,14 @@ if (closeModalClicks) {
   }
 }
 
+$(window).scroll(function() {
+  var scrolltop=$(this).scrollTop();
+  if (scrolltop >= 500) {
+    $(".btn_up").removeClass('hidden');
+  } else { 
+    $(".btn_up").addClass('hidden');
+  }
+});
+$(".btn_up").click(function() {
+  $("html,body").animate({scrollTop: 0}, 500);
+});
